@@ -1,3 +1,3 @@
-# K-Space
+# K-Space server
 
 Todo write readme...

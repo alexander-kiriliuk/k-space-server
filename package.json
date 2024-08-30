@@ -1,17 +1,17 @@
 {
-  "name": "k-space",
+  "name": "k-space-server",
   "version": "0.0.1",
   "author": "Alexander Kiriliuk",
   "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "init:server": "npm run init:server:config && npm run init:server:app",
-    "init:server:config": "nest start init-config",
-    "init:server:app": "nest start init-app",
-    "build:server:app": "rimraf dist && tsc -p app/tsconfig.server.json",
-    "start:server:app": "nest start server",
-    "start:server:app:dev": "nest start server --debug --watch",
-    "start:server:app:prod": "node dist/src/main"
+    "init": "npm run init:config && npm run init:app",
+    "init:config": "nest start init-config",
+    "init:app": "nest start init-app",
+    "build:app": "rimraf dist && tsc -p app/tsconfig.server.json",
+    "start:app": "nest start server",
+    "start:app:dev": "nest start server --debug --watch",
+    "start:app:prod": "node dist/src/main"
   },
   "dependencies": {
     "@nestjs/axios": "3.0.3",
