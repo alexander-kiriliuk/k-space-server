@@ -29,7 +29,7 @@ import {
 import hasAccessForRoles = UserUtils.hasAccessForRoles;
 
 @Injectable()
-export class WebAppService {
+export class AppService {
   constructor(
     @InjectDataSource()
     private readonly dataSource: DataSource,

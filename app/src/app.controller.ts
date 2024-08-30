@@ -15,12 +15,12 @@
  */
 
 import { Controller, Get, UseGuards } from "@nestjs/common";
-import { WebAppService } from "./web-app.service";
+import { AppService } from "./app.service";
 import { AuthGuard, CurrentUser, User } from "@k-platform/core";
 
 @Controller("app")
 export class AppController {
-  constructor(private readonly webAppService: WebAppService) {}
+  constructor(private readonly webAppService: AppService) {}
 
   @Get("/options")
   async getOptions() {

@@ -5,36 +5,36 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "./server/tsconfig.server.json"
+    "tsConfigPath": "./app/tsconfig.server.json"
   },
   "monorepo": true,
   "root": "",
   "projects": {
-    "init-server-config": {
+    "init-config": {
       "type": "application",
-      "root": "server/config",
+      "root": "app/config",
       "entryFile": "init",
-      "sourceRoot": "server/config",
+      "sourceRoot": "app/config",
       "compilerOptions": {
-        "tsConfigPath": "server/config/tsconfig.app.json"
+        "tsConfigPath": "app/config/tsconfig.cfg.json"
       }
     },
-    "init-server-app": {
+    "init-app": {
       "type": "application",
-      "root": "server",
+      "root": "app",
       "entryFile": "init",
-      "sourceRoot": "server/src",
+      "sourceRoot": "app/src",
       "compilerOptions": {
-        "tsConfigPath": "server/tsconfig.server.json"
+        "tsConfigPath": "app/tsconfig.server.json"
       }
     },
-    "server-app": {
+    "server": {
       "type": "application",
-      "root": "server",
+      "root": "app",
       "entryFile": "main",
-      "sourceRoot": "server/src",
+      "sourceRoot": "app/src",
       "compilerOptions": {
-        "tsConfigPath": "server/tsconfig.server.json"
+        "tsConfigPath": "app/tsconfig.server.json"
       }
     }
   }

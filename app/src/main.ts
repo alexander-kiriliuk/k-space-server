@@ -15,7 +15,7 @@
  */
 
 import { NestFactory, Reflector } from "@nestjs/core";
-import { WebAppModule } from "./web-app.module";
+import { AppModule } from "./app.module";
 import {
   ClassSerializerInterceptor,
   ForbiddenException,
@@ -47,7 +47,7 @@ import { ServerConfig } from "@gen-src/server.config";
   expressAdapter.set("trust proxy", true);
   expressAdapter.set("json replacer", JsonUtils.jsonFilter);
 
-  const app = await NestFactory.create(WebAppModule, expressAdapter);
+  const app = await NestFactory.create(AppModule, expressAdapter);
   const logger: Logger = app.select(LogModule).get(LOGGER);
   EnvLoader.loadEnvironment(logger);
   app.use(cookieParser());

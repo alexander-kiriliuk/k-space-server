@@ -19,7 +19,7 @@ import { MulterModule } from "@nestjs/platform-express";
 import { MulterConfig } from "./multer.config";
 import { Orm } from "./orm.config";
 import { AppController } from "./app.controller";
-import { WebAppService } from "./web-app.service";
+import { AppService } from "./app.service";
 import { HttpModule, HttpService } from "@nestjs/axios";
 import {
   AuthModule,
@@ -99,6 +99,6 @@ import { KpConfig } from "@gen-src/kp.config";
     }),
   ],
   controllers: [AppController],
-  providers: [LocaleSubscriber, WebAppService, TmpDirCleanerProcess],
+  providers: [LocaleSubscriber, AppService, TmpDirCleanerProcess],
 })
-export class WebAppModule {}
+export class AppModule {}

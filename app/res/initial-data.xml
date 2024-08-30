@@ -17,16 +17,16 @@
   -->
 
 <schema>
-    <Include read="/server/res/xml/0-media-data.xml"/>
-    <Include read="/server/res/xml/1-languages.xml"/>
-    <Include read="/server/res/xml/2-user-roles.xml"/>
-    <Include read="/server/res/xml/3-main-menu.xml"/>
-    <Include read="/server/res/xml/4-explorer-targets.xml"/>
-    <Include read="/server/res/xml/5-explorer-renderers.xml"/>
-    <Include read="/server/res/xml/6-explorer-actions.xml"/>
-    <Include read="/server/res/xml/7-explorer-columns.xml"/>
-    <Include read="/server/res/xml/8-explorer-files.xml"/>
-    <Include read="/server/res/xml/9-processes.xml"/>
-    <Include read="/server/res/xml/10-locales.xml"/>
-    <Include read="/server/res/xml/11-explorer-view-rules.xml"/>
+    <Include read="/app/res/xml/0-media-data.xml"/>
+    <Include read="/app/res/xml/1-languages.xml"/>
+    <Include read="/app/res/xml/2-user-roles.xml"/>
+    <Include read="/app/res/xml/3-main-menu.xml"/>
+    <Include read="/app/res/xml/4-explorer-targets.xml"/>
+    <Include read="/app/res/xml/5-explorer-renderers.xml"/>
+    <Include read="/app/res/xml/6-explorer-actions.xml"/>
+    <Include read="/app/res/xml/7-explorer-columns.xml"/>
+    <Include read="/app/res/xml/8-explorer-files.xml"/>
+    <Include read="/app/res/xml/9-processes.xml"/>
+    <Include read="/app/res/xml/10-locales.xml"/>
+    <Include read="/app/res/xml/11-explorer-view-rules.xml"/>
 </schema>

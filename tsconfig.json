@@ -19,7 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@gen-src/*": [
-        "server/gen-src/*"
+        "app/gen-src/*"
       ]
     }
   }

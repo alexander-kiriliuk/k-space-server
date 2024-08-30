@@ -6,12 +6,12 @@
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
     "init:server": "npm run init:server:config && npm run init:server:app",
-    "init:server:config": "nest start init-server-config",
-    "init:server:app": "nest start init-server-app",
-    "build:server:app": "rimraf dist/server && tsc -p server/tsconfig.server.json",
-    "start:server:app": "nest start server-app",
-    "start:server:app:dev": "nest start server-app --debug --watch",
-    "start:server:app:prod": "node dist/server/src/main"
+    "init:server:config": "nest start init-config",
+    "init:server:app": "nest start init-app",
+    "build:server:app": "rimraf dist && tsc -p app/tsconfig.server.json",
+    "start:server:app": "nest start server",
+    "start:server:app:dev": "nest start server --debug --watch",
+    "start:server:app:prod": "node dist/src/main"
   },
   "dependencies": {
     "@nestjs/axios": "3.0.3",
@@ -82,7 +82,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^@gen-src/(.*)$": "<rootDir>/server/gen-src/$1"
+      "^@gen-src/(.*)$": "<rootDir>/app/gen-src/$1"
     },
     "moduleFileExtensions": [
       "js",
