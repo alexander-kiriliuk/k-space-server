@@ -22,6 +22,11 @@ import { AuthGuard, CurrentUser, User } from "@k-platform/core";
 export class AppController {
   constructor(private readonly webAppService: AppService) {}
 
+  @Get("/ping")
+  async ping() {
+    return { ok: 200 };
+  }
+
   @Get("/options")
   async getOptions() {
     return {
