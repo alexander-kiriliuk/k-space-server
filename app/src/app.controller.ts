@@ -27,6 +27,7 @@ export class AppController {
     return { ok: 200 };
   }
 
+  @UseGuards(AuthGuard)
   @Get("/options")
   async getOptions() {
     return {
