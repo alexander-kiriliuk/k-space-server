@@ -36,7 +36,7 @@ export class AppService {
     private readonly categoryService: CategoryService,
   ) {}
 
-  private get menuRestrictionRep() {
+  private get restrictionRep() {
     return this.dataSource.getRepository(CategoryRestrictionEntity);
   }
 
@@ -54,31 +54,33 @@ export class AppService {
     });
   }
 
-  async getMainMenu(user: User) {
-    const restrictions = await this.menuRestrictionRep.find({
+  async getCategoryTree(user: User, code: string) {
+    const restrictions = await this.restrictionRep.find({
       relations: ["category", "allowFor"],
     });
-    const menuTree =
-      await this.categoryService.getDescendantsByCodeOfRoot("a-menu-root");
-    this.validateMenu(menuTree, restrictions, user?.roles);
-    return menuTree;
+    const tree = await this.categoryService.getDescendantsByCodeOfRoot(code);
+    if (!tree) {
+      return {};
+    }
+    this.validateMenu(tree, restrictions, user?.roles);
+    return tree;
   }
 
   private validateMenu(
-    menuTree: CategoryEntity,
+    tree: CategoryEntity,
     restrictions: CategoryRestrictionEntity[],
     roles: UserRole[],
   ) {
-    for (let i = menuTree.children.length - 1; i >= 0; i--) {
-      const node = menuTree.children[i];
+    for (let i = tree.children.length - 1; i >= 0; i--) {
+      const node = tree.children[i];
       const res = restrictions.find((v) => v.category.code === node.code);
       if (res && !hasAccessForRoles(roles, res.allowFor)) {
-        menuTree.children.splice(i, 1);
+        tree.children.splice(i, 1);
       }
       if (node.children?.length) {
         this.validateMenu(node, restrictions, roles);
       }
     }
-    menuTree.children = menuTree.children.filter((node) => node != null);
+    tree.children = tree.children.filter((node) => node != null);
   }
 }

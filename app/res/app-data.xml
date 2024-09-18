@@ -1,0 +1,46 @@
+<schema>
+
+    <!--Create default directories-->
+
+    <InsertUpdate target="LocalizedStringEntity">
+        <row>
+            <lang key="id">ru</lang>
+            <code>dir-struct-root-name-ru</code>
+            <value>Корневой каталог</value>
+        </row>
+        <row>
+            <lang key="id">en</lang>
+            <code>dir-struct-root-name-en</code>
+            <value>Root directory</value>
+        </row>
+        <row>
+            <lang key="id">ru</lang>
+            <code>dir-struct-shared-name-ru</code>
+            <value>Общие</value>
+        </row>
+        <row>
+            <lang key="id">en</lang>
+            <code>dir-struct-shared-name-en</code>
+            <value>Shared</value>
+        </row>
+    </InsertUpdate>
+
+    <InsertUpdate target="CategoryEntity">
+        <row>
+            <code>dir-struct-root</code>
+            <name key="code">
+                <row>dir-struct-root-name-ru</row>
+                <row>dir-struct-root-name-en</row>
+            </name>
+        </row>
+        <row>
+            <code>dir-struct-shared</code>
+            <parent key="code">dir-struct-root</parent>
+            <name key="code">
+                <row>dir-struct-shared-name-ru</row>
+                <row>dir-struct-shared-name-en</row>
+            </name>
+        </row>
+    </InsertUpdate>
+
+</schema>

@@ -20,7 +20,7 @@ import { AuthGuard, CurrentUser, User } from "@k-platform/core";
 
 @Controller("app")
 export class AppController {
-  constructor(private readonly webAppService: AppService) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get("/ping")
   async ping() {
@@ -28,16 +28,27 @@ export class AppController {
   }
 
   @UseGuards(AuthGuard)
+  @Get("/check-access")
+  async check() {
+    return { ok: 200 };
+  }
+
   @Get("/options")
   async getOptions() {
     return {
-      langs: await this.webAppService.getAvailableLangs(),
+      langs: await this.appService.getAvailableLangs(),
     };
   }
 
   @UseGuards(AuthGuard)
   @Get("/menu")
   async getMenu(@CurrentUser() user: User) {
-    return await this.webAppService.getMainMenu(user);
+    return await this.appService.getCategoryTree(user, "a-menu-root");
+  }
+
+  @UseGuards(AuthGuard)
+  @Get("/dirs-tree")
+  async getDirsTree(@CurrentUser() user: User) {
+    return await this.appService.getCategoryTree(user, "dir-struct-root");
   }
 }

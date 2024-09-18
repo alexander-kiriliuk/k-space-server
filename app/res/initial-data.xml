@@ -29,4 +29,5 @@
     <Include read="/app/res/xml/9-processes.xml"/>
     <Include read="/app/res/xml/10-locales.xml"/>
     <Include read="/app/res/xml/11-explorer-view-rules.xml"/>
+    <Include read="/app/res/app-data.xml"/>
 </schema>
